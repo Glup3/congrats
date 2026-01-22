@@ -34,11 +34,11 @@ const { headline, content } = Astro.props
 	<body class="min-h-screen flex justify-center items-center bg-linear-to-br from-[#ff9a9e] via-[#fecfef] to-[#fecfef] font-sans m-0 p-0 overflow-hidden">
 		<div class="perspective-[1000px] cursor-pointer" id="giftContainer">
 			<div class="w-87.5 h-62.5 relative transform-3d transition-transform duration-800 ease" id="giftCard">
-				<div class="card-front absolute inset-0 backface-hidden rounded-[15px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-linear-to-br from-[#ff6b6b] to-[#ee5a5a] flex flex-col justify-center items-center overflow-hidden before:absolute before:top-[-50%] before:left-[-50%] before:w-[200%] before:h-[200%] before:bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_60%)] before:animate-shimmer">
+				<div class="card-front absolute inset-0 backface-hidden rounded-[15px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-linear-to-br from-[#ff6b6b] to-[#ee5a5a] flex flex-col justify-center items-center overflow-hidden before:absolute before:top-[-50%] before:left-[-50%] before:w-[200%] before:h-[200%] before:bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_60%)] before:animate-shimmer z-10">
 					<img src="/gift.svg" alt="Gift" class="w-45 h-35 relative z-10" />
 					<span class="absolute bottom-3.75 text-white text-xs opacity-90 animate-pulse">Tap to open!</span>
 				</div>
-				<div class="card-back absolute inset-0 backface-hidden rounded-[15px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-linear-to-br from-[#fff9f0] to-[#fff5e6] transform-[rotateX(180deg)] flex flex-col justify-center items-center p-7.5 text-center">
+				<div class="card-back absolute inset-0 backface-hidden rounded-[15px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-linear-to-br from-[#fff9f0] to-[#fff5e6] transform-[rotateX(180deg)] flex flex-col justify-center items-center p-7.5 text-center z-0">
                     <h1 class="text-[#ff6b6b] text-2xl mb-4">{headline}</h1>
                     <p class="text-[#666] text-base leading-relaxed mb-5">{content}</p>
 					<div class="text-5xl mt-2 animate-bounce">🎂</div>
@@ -49,6 +49,18 @@ const { headline, content } = Astro.props
 </html>
 
 <style>
+	#giftCard {
+		will-change: transform;
+	}
+
+	.card-front,
+	.card-back {
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+	}
+
 	.open {
 		transform: rotateX(180deg);
 	}
@@ -58,17 +70,18 @@ const { headline, content } = Astro.props
 		50%{transform:rotate(180deg);}
 	}
 
-	@keyframes bow-sway {
-		0%,100%{transform:rotate(-30deg);}
-		50%{transform:rotate(-20deg);}
-	}
-
 	.animate-shimmer {
 		animation: shimmer 3s infinite;
 	}
 
-	.animate-bow-sway {
-		animation: bow-sway 2s ease-in-out infinite;
+	.perspective-[1000px] {
+		perspective: 1000px;
+		-webkit-perspective: 1000px;
+	}
+
+	.transform-3d {
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
 	}
 </style>
 
