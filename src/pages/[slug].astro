@@ -24,6 +24,11 @@ const { headline, content } = Astro.props
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
         <title>{headline}</title>
+		<meta property="og:title" content={headline} />
+		<!-- <meta property="og:description" content={content} /> -->
+		<meta property="og:image" content="/favicon.svg" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:type" content="website" />
 	</head>
 
 	<body class="min-h-screen flex justify-center items-center bg-linear-to-br from-[#ff9a9e] via-[#fecfef] to-[#fecfef] font-sans m-0 p-0 overflow-hidden">
