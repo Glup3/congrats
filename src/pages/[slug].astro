@@ -1,16 +1,19 @@
 ---
-import type { GetStaticPaths } from "astro";
-import { getCollection } from 'astro:content';
-import "../styles/global.css";
+import { getCollection } from "astro:content"
+import type { GetStaticPaths } from "astro"
+import "../styles/global.css"
 
 export const getStaticPaths = (async () => {
-  
-const cards = await getCollection('cards');
+	const cards = await getCollection("cards")
 
-  return cards.map(card => ({ params: { slug: card.data.slug}, props: { headline: card.data.headline, content: card.data.content}}))
-}) satisfies GetStaticPaths;
+	return cards.map((card) => ({
+		params: { slug: card.data.slug },
+		props: { headline: card.data.headline, content: card.data.content },
+	}))
+}) satisfies GetStaticPaths
 
-const { headline, content  } = Astro.props;
+// biome-ignore lint/correctness/noUnusedVariables: astro props
+const { headline, content } = Astro.props
 ---
 
 <html lang="en">
