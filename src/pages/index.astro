@@ -1,5 +1,5 @@
 ---
-
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -9,9 +9,52 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Happy Birthday!</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="min-h-screen flex justify-center items-center bg-linear-to-br from-[#ff9a9e] via-[#fecfef] to-[#fecfef] font-serif m-0 p-0 overflow-hidden">
+		<div class="perspective-[1000px] cursor-pointer" id="giftContainer">
+			<div class="w-87.5 h-62.5 relative transform-3d transition-transform duration-800 ease" id="giftCard">
+				<div class="card-front absolute inset-0 backface-hidden rounded-[15px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-linear-to-br from-[#ff6b6b] to-[#ee5a5a] flex flex-col justify-center items-center overflow-hidden before:absolute before:top-[-50%] before:left-[-50%] before:w-[200%] before:h-[200%] before:bg-[radial-gradient(circle,rgba(255,255,255,0.1)_0%,transparent_60%)] before:animate-shimmer">
+					<div class="relative z-10 w-20 h-10 before:absolute before:w-10 before:h-12.5 before:bg-[#ffd700] before:rounded-[50%_50%_50%_0] before:-top-6.25 before:left-0 before:rotate-[-30deg] before:animate-bow-sway after:absolute after:w-10 after:h-12.5 after:bg-[#ffd700] after:rounded-[50%_50%_50%_0] after:-top-6.25 after:right-0 after:rotate-30 after:transform-[scaleX(-1)] after:animate-bow-sway after:[animation-delay:0.5s]"></div>
+					<div class="relative w-30 h-25 rounded-lg mt-2.5 shadow-[inset_0_-10px_20px_rgba(0,0,0,0.1)] before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-5 before:h-full before:bg-linear-to-r before:from-[#ffd700] before:via-[#ffec8b] before:to-[#ffd700] before:shadow-[0_0_10px_rgba(255,215,0,0.5)] after:absolute after:top-1/2 after:left-0 after:-translate-y-1/2 after:w-full after:h-5 after:bg-linear-to-b after:from-[#ffd700] after:via-[#ffec8b] after:to-[#ffd700] after:shadow-[0_0_10px_rgba(255,215,0,0.5)]"></div>
+					<span class="absolute bottom-3.75 text-white text-xs opacity-90 animate-pulse">Tap to open!</span>
+				</div>
+				<div class="card-back absolute inset-0 backface-hidden rounded-[15px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] bg-linear-to-br from-[#fff9f0] to-[#fff5e6] transform-[rotateX(180deg)] flex flex-col justify-center items-center p-7.5 text-center">
+					<h1 class="text-[#ff6b6b] text-2xl mb-4">Happy Birthday!</h1>
+					<p class="text-[#666] text-base leading-relaxed mb-5">Wishing you a day filled with love, laughter, and all your favorite things. May this new year bring you endless joy and wonderful adventures!</p>
+					<div class="text-5xl mt-2 animate-bounce">🎂</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
+
+<style>
+	.open {
+		transform: rotateX(180deg);
+	}
+
+	@keyframes shimmer {
+		0%,100%{transform:rotate(0deg);}
+		50%{transform:rotate(180deg);}
+	}
+
+	@keyframes bow-sway {
+		0%,100%{transform:rotate(-30deg);}
+		50%{transform:rotate(-20deg);}
+	}
+
+	.animate-shimmer {
+		animation: shimmer 3s infinite;
+	}
+
+	.animate-bow-sway {
+		animation: bow-sway 2s ease-in-out infinite;
+	}
+</style>
+
+<script>
+    document.getElementById('giftContainer')?.addEventListener('click', () => {
+        document.getElementById('giftCard')?.classList.toggle('open');
+    });
+</script>
