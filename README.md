@@ -1,43 +1,49 @@
-# Astro Starter Kit: Minimal
+# Congrats
 
-```sh
-npm create astro@latest -- --template minimal
+A simple digital congratulations cards app powered by [Astro](https://astro.build) and [PocketBase](https://pocketbase.io).
+
+## Tech Stack
+
+- **Astro** - Static site generator and web framework
+- **PocketBase** - Backend with database, auth, and file storage
+- **Tailwind CSS** - Utility-first CSS framework
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/     # Reusable UI components
+│   ├── content/        # Content collections
+│   ├── pages/          # Astro pages (routes)
+│   └── styles/         # Global styles
+├── public/             # Static assets
+├── astro.config.mjs    # Astro configuration
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Environment Variables
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Copy `.env.example` to `.env` and configure the secrets.
+Follow [Docs: https://pocketbase.io/docs/authentication/#api-keys] to get the token.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Learn More
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro Docs](https://docs.astro.build)
+- [PocketBase Docs](https://pocketbase.io/docs/)
